@@ -24,7 +24,7 @@ public class FirearmDAOImpl implements FirearmDAO {
 
 	@Override
 	public List<Firearm> findAll() {
-		String jsql = "SELECT x FROM Firearm x";
+		String jsql = "SELECT f FROM Firearm f";
 		return em.createQuery(jsql, Firearm.class).getResultList();
 			 
 		
@@ -32,20 +32,39 @@ public class FirearmDAOImpl implements FirearmDAO {
 
 	@Override
 	public Firearm create(Firearm firearm) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(firearm);
+		return firearm;
 	}
 
 	@Override
 	public Firearm update(String name, Firearm firearm) {
-		// TODO Auto-generated method stub
-		return null;
+Firearm firearmUpdate = em.find(Firearm.class, name);
+		
+		firearmUpdate.setName(firearm.getName());
+		firearmUpdate.setCaliber(firearm.getCaliber());
+		firearmUpdate.setOperation(firearm.getOperation());
+		firearmUpdate.setCapacity(firearm.getCapacity());
+		firearmUpdate.setType(firearm.getType());
+	
+		return firearm;
 	}
+
+
 
 	@Override
 	public boolean delete(String name) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+				
+				Firearm firearm =em.find(Firearm.class,name);
+				
+				em.remove(firearm);
+				
+				return true;
+			} 
+			catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
 	}
 
 }
