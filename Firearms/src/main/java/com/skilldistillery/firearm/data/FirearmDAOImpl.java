@@ -18,8 +18,8 @@ public class FirearmDAOImpl implements FirearmDAO {
 	
 
 	@Override
-	public Firearm findbyName(String name) {
-		return em.find(Firearm.class, name);
+	public String findbyName(String name) {
+		return name;
 	}
 
 	@Override
@@ -31,14 +31,15 @@ public class FirearmDAOImpl implements FirearmDAO {
 	}
 
 	@Override
-	public Firearm create(Firearm firearm) {
+	public Firearm createFirearm(Firearm firearm) {
 		em.persist(firearm);
 		return firearm;
 	}
 
 	@Override
-	public Firearm update(String name, Firearm firearm) {
-Firearm firearmUpdate = em.find(Firearm.class, name);
+	public Firearm updateFirearm(int id, Firearm firearm) {
+		
+Firearm firearmUpdate = em.find(Firearm.class,id);
 		
 		firearmUpdate.setName(firearm.getName());
 		firearmUpdate.setCaliber(firearm.getCaliber());
@@ -48,23 +49,29 @@ Firearm firearmUpdate = em.find(Firearm.class, name);
 	
 		return firearm;
 	}
-
-
-
-	@Override
-	public boolean delete(String name) {
-		try {
-				
-				Firearm firearm =em.find(Firearm.class,name);
-				
-				em.remove(firearm);
-				
-				return true;
-			} 
-			catch (Exception e) {
-				e.printStackTrace();
-				return false;
-			}
+@Override
+public Boolean deleteFirearm(int id) {
+	try {
+		Firearm firearm= em.find(Firearm.class, id);
+		
+		em.remove(firearm);
+		return true;
 	}
+	catch(Exception e) {
+		e.printStackTrace();
+		return false;
+	}
+	
+}
+
+@Override
+public Firearm findFirearmById(int id) {
+	em.persist(id);
+	return null;
+
 
 }
+}
+
+
+	

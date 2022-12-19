@@ -1,5 +1,6 @@
 package com.skilldistillery.firearm.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,73 +15,77 @@ import com.skilldistillery.firearm.entities.Firearm;
 public class FirearmController {
 
 	@Autowired
-	private FirearmDAO dao;
+	FirearmDAO dao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String goToHome(Model model) {
 		model.addAttribute("FirearmList", dao.findAll());
 		return "home";
 	}
-	
-	@RequestMapping(path = "getFirearm.do", method = RequestMethod.GET)
-	public String getPlayer(Model model, String name) {
-		Firearm firearm = dao.findbyName(name);
-		if (!(firearm == null)) {
 
-			if (firearm.getName() == null) {
-				model.addAttribute("firearm", firearm);
-				return "firearm";
-
-			}
-
-			else {
-
-				model.addAttribute("firearm", firearm);
-				return "firearm";
-			}
-		}
-		
-		else {
-			model.addAttribute("result", "BANG, YOU GOT ME!!");
-			return"firearm/result";		}
-
-	}
-
-
-	@RequestMapping(path = "listFirearm.do", method = RequestMethod.GET)
+	@RequestMapping(path = "listFirearms.do", method = RequestMethod.GET)
 	public String listAllFirearm(Model model) {
 		model.addAttribute("firearm", dao.findAll());
-		return "firearm/listFirearms";
+		return "listFirearms";
 	}
 
+	@RequestMapping(path = "createFirearmForm.do", method = RequestMethod.GET)
+	public String createFirearmForm(Firearm firearm) {
+
+		return "newFirearm";
+	}
+
+
+	@RequestMapping(path = "deleteFirearm.do", method = RequestMethod.POST)
+	public String deleteFirearm(@RequestParam("id")int id, Model model) {
+		if (dao.deleteFirearm(id)) {
+			model.addAttribute("result", "Firearm Deleted!");
+		}
+
+		else {
+			model.addAttribute("result", "Firearm Not Found!");
+		}
+		return "result";
+	}
 
 	@RequestMapping(path = "createFirearm.do", method = RequestMethod.POST)
-	public String createPLayer(Firearm firearm, Model model) {
+	public String createFirearm(Firearm firearm, Model model) {
 		model.addAttribute("firearm", dao.createFirearm(firearm));
-		return "firearm";
+		return "showNewFirearm";
 	}
 
-	@RequestMapping(path = "updateFirearm.do", method = RequestMethod.POST)
-	private String updateFirearm(String name, Model model, Firearm firearm) {
-		dao.updateFirearm(name, firearm);
-		model.addAttribute("firearm", firearm);
+	@RequestMapping(path = "getFirearm.do", method = RequestMethod.GET)
+	public String getFirearm(Model model, String name) {
+		String firearm = dao.findbyName(name);
+		if (!(firearm == null )) {
 
-		return "firearm";
+				model.addAttribute("result", firearm);
+				return "show";
+			}
+		
+
+		else {
+			model.addAttribute("result", "Firearm Not Found!");
+			return "show";
+		}
 	}
 
-	@RequestMapping(path = "deleteFirearm.do", method = RequestMethod.GET)
-	public String deleteFirearm(@RequestParam("name") String name, Model model) {
+	@RequestMapping(path = "updateFirearmForm.do", method = RequestMethod.POST)
+	public String updateFirearmForm(String name, Model model) {
 		try {
-			if (dao.deleteFirearm(name)) {
-				model.addAttribute("result", "Firearm Deleted!");
-			}
-			
-			else {
-				model.addAttribute("result", "Firearm Not Found!");
-			}
+			model.addAttribute("name", dao.findbyName(name));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "firearm/result";
+		return "updateFirearm";
 	}
+
+	@RequestMapping(path = "updateFirearm.do", method = RequestMethod.POST)
+	private String updateFirearm(int id, Model model, Firearm firearm, String name) {
+		dao.updateFirearm(id, firearm);
+		model.addAttribute("firearm", firearm);
+
+		return "showNewFirearm";
+	}
+
 }

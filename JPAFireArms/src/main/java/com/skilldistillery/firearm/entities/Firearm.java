@@ -26,7 +26,15 @@ public class Firearm {
 	private String type;
 	
 	public Firearm() {
+	}
+		
+		public Firearm(String name, String caliber, String operation, String capacity, String type) {
 		super();
+		this.name=name;
+		this.caliber=caliber;
+		this.operation=operation;
+		this.type=type;
+		this.capacity=capacity;
 	}
 
 	public int getId() {

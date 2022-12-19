@@ -6,15 +6,27 @@ import com.skilldistillery.firearm.entities.Firearm;
 
 public interface FirearmDAO {
 
-	Firearm findbyName(String name);
+	public String findbyName(String name);
 
-	List<Firearm> findAll();
+	public List<Firearm> findAll();
 
-	Firearm createFirearm(Firearm firearm);
+	public Firearm createFirearm(Firearm firearm);
+	
+	
+	
+	public Firearm updateFirearm (int id, Firearm firearm);
 
-	Firearm updateFirearm(String name, Firearm firearm);
+	
 
-	boolean deleteFirearm(String name);
+	java.lang.Boolean deleteFirearm(int id);
+
+	public Firearm findFirearmById(int id);
+
+	
+
+	
+
+	
 
 //	future goals
 //	list by calibers
@@ -25,6 +37,6 @@ public interface FirearmDAO {
 //	maybe make a list of what is own and want.
 //	possibly add serial numbers, however only accessible to only the owner 
 //	
-//	
+//	might include a list of known ranges to visit and what they offer
 //	
 }
