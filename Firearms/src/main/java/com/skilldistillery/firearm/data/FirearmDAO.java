@@ -6,27 +6,24 @@ import com.skilldistillery.firearm.entities.Firearm;
 
 public interface FirearmDAO {
 
+	public Firearm findFirearmById(int id);
+
+	public List<Firearm> findFirearms();
+
+	public Boolean deleteFirearm(int id);
+
+	public Firearm updateFirearm(int id, Firearm firearm);
+
+	public Firearm createFirearm(Firearm firearm);
+
 	public String findbyName(String name);
 
 	public List<Firearm> findAll();
 
-	public Firearm createFirearm(Firearm firearm);
-	
-	
-	
-	public Firearm updateFirearm (int id, Firearm firearm);
-
+	}
 	
 
-	java.lang.Boolean deleteFirearm(int id);
 
-	public Firearm findFirearmById(int id);
-
-	
-
-	
-
-	
 
 //	future goals
 //	list by calibers
@@ -39,4 +36,4 @@ public interface FirearmDAO {
 //	
 //	might include a list of known ranges to visit and what they offer
 //	
-}
+

@@ -1,5 +1,7 @@
 package com.skilldistillery.firearm.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,16 +28,27 @@ public class Firearm {
 	private String type;
 	
 	public Firearm() {
+		super();
 	}
 		
-		public Firearm(String name, String caliber, String operation, String capacity, String type) {
+		public Firearm(int id,String name, String caliber, String operation, String capacity, String type) {
 		super();
+		this.id = id;
 		this.name=name;
 		this.caliber=caliber;
 		this.operation=operation;
 		this.type=type;
 		this.capacity=capacity;
 	}
+		public Firearm(String name, String caliber, String operation, String capacity, String type) {
+			super();
+			this.name=name;
+			this.caliber=caliber;
+			this.operation=operation;
+			this.type=type;
+			this.capacity=capacity;
+		}
+		
 
 	public int getId() {
 		return id;
@@ -93,5 +106,24 @@ public class Firearm {
 		.append(", operation=").append(operation).append(", capacity=").append(capacity).append(", type=")
 		.append(type).append("]");
 		return builder.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(caliber, capacity, id, name, operation, type);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Firearm other = (Firearm) obj;
+		return Objects.equals(caliber, other.caliber) && Objects.equals(capacity, other.capacity) && id == other.id
+				&& Objects.equals(name, other.name) && Objects.equals(operation, other.operation)
+				&& Objects.equals(type, other.type);
 	}
 }

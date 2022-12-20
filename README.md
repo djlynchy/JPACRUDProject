@@ -30,6 +30,8 @@ one of the things i learned is its rather difficult to manage backshop, frontsho
 
 i got a better understanding of how each part plays with each other.
 
+i learned why typos are the bane of programers everywhere.
+
 i also think my idea bit off more than i could chew with time constraints.
 
 ## Future Goals

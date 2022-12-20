@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Showing firearm</title>
+<title>Show Firearm</title>
 </head>
 <jsp:include page="navbar.jsp"><jsp:param value="" name=""/></jsp:include>
 	<br>
@@ -16,32 +16,30 @@
 		<div class="row row-no-gutters">
 			<div class="col-xs-6 col-md-4"></div>
 			<div class="col-xs-6 col-md-4 text-center">
-				<h3 style="font-family:Impact, Charcoal, sans-serif; ">
-					<strong>${Firearm.name}</strong>
+				<h3 style="font-family:Apple Chancery, Charcoal, cursive; ">
+					<strong>${firearm.name}</strong>
 				</h3>
-				<form action="updateFirearmForm.do" method="POST">
-					<input type='hidden' name='id' id='id' value='${firearm.id}' />
-					<button type="submit" class="btn btn-success">Update</button>
-				</form> 
 				<br>
 				<p>
-					<strong>Caliber: </strong>${Firearm.caliber}</p>
-		
+					<strong>Caliber: </strong>${firearm.caliber}</p>
 				<p>
-					<strong>Operation: </strong>${Firearm.operation}</p>
+					<strong>Operation: </strong>${firearm.operation}</p>
 				<p>
-					<strong>Capacity: </strong>${Firearm.capacity} Rounds</p>
-				
+					<strong>Capacity: </strong>${firearm.capacity} Rounds</p>
 				<p>
-					<strong>Type: </strong>${Firearm.type}
+					<strong>Type: </strong>${firearm.type}
 				</p>
 				
 				<br>
-				<br>
- 		<%-- <form action="deleteFirearm.do" method="POST">
+				<form action="updateFirearmForm.do" method="GET">
+					<input type='hidden' name='id' id='id' value='${firearm.id}' />
+					<button type="submit" class="btn btn-success">Update</button>
+				</form> 
+				<br> 
+ 		 <%-- <form action="deleteFirearm.do" method="POST">
 					<input type='hidden' name='id' id='id' value='${firearm.id}' />
 					<button type="submit" class="btn btn-danger">Delete</button>
-				</form> --%>
+				</form>  --%>
 				<br>
 			</div>
 		</div>

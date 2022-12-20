@@ -8,7 +8,7 @@
 </head>
 <jsp:include page="navbar.jsp"><jsp:param value="" name="" /></jsp:include>
 <br>
-<body style="background-color: #41C5EE">
+<body style="background-color: #B22222">
 
 	<br>
 	<div class="container-fluid" style="padding-top: 2in;">
@@ -16,7 +16,7 @@
 			<div class="col-xs-6 col-md-4"></div>
 			<div class="col-xs-6 col-md-4 text-center">
 
-				<h1 style="font-family:Impact, Charcoal, sans-serif; font-size: 80px">${result}</h1>
+				<h1 style="font-family:Apple Chancery, Yellow, cursive; font-size: 80px">${result}</h1>
 			</div>
 		</div>
 	</div>

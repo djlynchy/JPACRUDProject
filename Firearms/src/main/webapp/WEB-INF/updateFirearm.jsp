@@ -12,7 +12,7 @@
 </head>
 <jsp:include page="navbar.jsp"><jsp:param value="" name="" /></jsp:include>
 <br>
-<body style="background-color: #41C5EE">
+<body style="background-color: #374B63">
 
 	<br>
 	<div class="container-fluid" style="padding-top: 2in;">
@@ -23,7 +23,7 @@
 
 
 				<form:form action="updateFirearm.do" method="POST"
-					modelAttribute="name">
+					modelAttribute="firearm">
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<form:label path="name">Name</form:label>
@@ -50,11 +50,11 @@
 						<form:label path="type">Type</form:label>
 						<form:input type="text" class="form-control" path="type"
 							placeholder="${firearm.type}" />
-					</div>
 					<br>
 					<br>
 					<input type='hidden' name='id' id="id" value='${firearm.id}' />
 					<button type="submit" class="btn btn-success">Submit</button>
+					</div>
 				</form:form>
 			</div>
 		</div>

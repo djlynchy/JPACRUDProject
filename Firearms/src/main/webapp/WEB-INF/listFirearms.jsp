@@ -32,12 +32,12 @@
 
 
 						<div>
-							<h3 style="font-family: Impact, Charcoal, sans-serif;">${firearm.name}</h3>
+							<h3 style="font-family: Apple Chancery, Charcoal, cursive;">${firearm.name}</h3>
 
 						</div>
 						<br>
 						
-						<form action="deleteFirearm.do" method="POST">
+						<form action="deleteFirearm.do" method="GET">
 					<input type='hidden' name='id' id='id' value='${firearm.id}' />
 					<button type="submit" class="btn btn-danger">Delete</button>
 				</form>

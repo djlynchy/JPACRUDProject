@@ -11,13 +11,13 @@
 </head>
 <jsp:include page="navbar.jsp"><jsp:param value="" name="" /></jsp:include>
 <br>
-<body style="background-color: #228B22">
+<body style="background-color: #9BAD8B">
 	<br>
 	<div class="container-fluid" style="padding-top: 2in;">
 		<div class="row row-no-gutters">
 			<div class="col-xs-6 col-md-4"></div>
 			<div class="col-xs-6 col-md-4 text-center">
-				<h3 style="font-family:Impact, Charcoal, sans-serif; ">
+				<h3 style="font-family:Apple Chancery, Charcoal, cursive; ">
 					<strong>${firearm.name}</strong>
 				</h3>
 
@@ -34,7 +34,6 @@
 				</p>
 				
 
-		
 				<br>
 				<form action="updateFirearmForm.do" method="GET">
 					<input type='hidden' name='id' id='id' value='${firearm.id}' />

@@ -9,11 +9,11 @@
 
 	<jsp:include page="navbar.jsp"><jsp:param value="" name=""/></jsp:include>
 	<br>
-<body style="background-color: #778899">
+<body style="background-color: #5A727A">
 
 	
 	
-	<h2 style="text-align:center; font-family:Impact, Charcoal, sans-serif; font-size: 65px"><strong>Create your wishlist of guns past and present you wish you could fire!</strong></h2>
+	<h2 style="text-align:center; font-family:Apple Chancery,DarkKhaki ; font-size: 65px"><strong>Create your wishlist of guns past and present you wish you could fire!</strong></h2>
 				
 	<img src="https://cdnmedia.endeavorsuite.com/images/organizations/039fa378-440c-4dd4-8bb5-63589e3c9c66/firearms-slider/firearm-slide-7.jpg
 " alt="homepage" width="260" height="265">

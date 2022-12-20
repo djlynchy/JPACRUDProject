@@ -12,7 +12,7 @@
 </head>
 <jsp:include page="navbar.jsp"><jsp:param value="" name="" /></jsp:include>
 <br>
-<body style="background-color: #41C5EE">
+<body style="background-color: #B3C2B8">
 
 	<br>
 	<div class="container-fluid" style="padding-top: 2in;">
